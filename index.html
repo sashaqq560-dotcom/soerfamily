@@ -70,6 +70,19 @@ section {
   border-radius: 12px;
   background: #1b0d1a;
 }
+.member-name {
+  color: #ff4eae;
+  font-size: 21px;
+  font-weight: bold;
+  text-shadow: 0 0 10px #ff168455;
+  overflow-wrap: anywhere;
+}
+.member-role {
+  color: #a99aa6;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
 .button {
   display: inline-block;
   margin-top: 12px;
@@ -78,20 +91,27 @@ section {
   background: #d91b80;
   border-radius: 8px;
   text-decoration: none;
+  transition: 0.2s;
 }
-.button:hover { background: #ff3ca6; }
+.button:hover {
+  background: #ff3ca6;
+  box-shadow: 0 0 15px #ff168466;
+}
 .rule {
   margin: 12px 0;
   padding: 15px;
   border-left: 3px solid #ff3ca6;
   border-radius: 5px;
   background: #1b0d1a;
+  line-height: 1.8;
+  color: #e8dce6;
 }
 .rule strong { color: #ff8bc9; }
 footer {
   padding: 25px;
   text-align: center;
   color: #a99aa6;
+  border-top: 1px solid #57203f;
 }
 @media (max-width: 600px) {
   h1 { font-size: 29px; }
@@ -109,6 +129,7 @@ footer {
     <a href="#about">О хаусе</a>
     <a href="#team">Администрация</a>
     <a href="#rules">Правила</a>
+    <a href="#contacts">Telegram</a>
   </nav>
 </header>
 
@@ -126,15 +147,21 @@ footer {
   </section>
 
   <section id="team">
-    <h2>👑 Наша администрация</h2>
+    <h2>👑 Владелец и администрация</h2>
     <div class="cards">
       <div class="card">
-        <h3>👑 Владелец</h3>
-        <p>Здесь будет информация о владельце хауса.</p>
+        <h3>👑 Владелец хауса</h3>
+        <p class="member-name">saffiko</p>
+        <p class="member-role">Owner · SoerFamily</p>
       </div>
       <div class="card">
         <h3>🛡️ Администрация</h3>
-        <p>Здесь будут указаны администраторы хауса.</p>
+        <p class="member-name">емс</p>
+        <p class="member-role">Администратор</p>
+        <p class="member-name">кира</p>
+        <p class="member-role">Администратор</p>
+        <p class="member-name">кот👿👿</p>
+        <p class="member-role">Администратор</p>
       </div>
     </div>
   </section>
@@ -180,8 +207,10 @@ footer {
 
   <section id="contacts">
     <h2>💌 Наш Telegram</h2>
-    <p>Здесь будет ссылка на Telegram-канал хауса.</p>
-    <a class="button" href="#contacts">Ссылка скоро появится</a>
+    <p>Присоединяйся к сообществу 𝑺𝒐𝒆𝒓𝑭𝒂𝒎𝒊𝒍𝒚!</p>
+    <a class="button" href="https://t.me/SoerFamily" target="_blank" rel="noopener noreferrer">
+      💗 Перейти в Telegram
+    </a>
   </section>
 </main>
 
