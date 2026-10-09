@@ -281,7 +281,7 @@ footer {
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 (() => {
-  const SUPABASE_URL = "https://lxdyomclanvyqsadpirl.supabase.co/rest/v1/";
+  const SUPABASE_URL = "https://lxdyomclanvyqsadpirl.supabase.co;
   const SUPABASE_KEY = "sb_publishable_VbT5fZOaz9mAJQ8-1J_6dg_MvB58iBu";
 
   const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
@@ -358,7 +358,7 @@ footer {
       message("Не удалось сохранить: " + error.message);
       return;
     }
-
+ 
     message("Изменения сохранены!");
     await loadStatus();
   };
