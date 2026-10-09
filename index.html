@@ -216,4 +216,162 @@ footer {
 
 <footer>© 2026 𝑺𝒐𝒆𝒓𝑭𝒂𝒎𝒊𝒍𝒚</footer>
 </body>
+  ```html
+<!-- SoerFamily Hacker Status Panel -->
+<style>
+#sf-panel {
+  background: #090909;
+  color: #ff4da6;
+  border: 1px solid #ff168a;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 25px auto;
+  max-width: 650px;
+  font-family: monospace;
+  box-shadow: 0 0 18px #ff168a33;
+}
+#sf-panel h2 { color: #ff4da6; }
+#sf-panel input, #sf-panel textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 10px 0;
+  padding: 11px;
+  background: #151515;
+  color: white;
+  border: 1px solid #ff168a;
+  border-radius: 6px;
+}
+#sf-panel button {
+  padding: 10px 15px;
+  margin: 5px 5px 5px 0;
+  background: #ff168a;
+  color: white;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+#sf-panel .sf-muted { color: #aaa; }
+</style>
+
+<section id="sf-panel">
+  <h2>&gt; SOERFAMILY_STATUS.exe</h2>
+  <p>Статус дома: <strong id="sf-status">Загрузка...</strong></p>
+  <p>Набор: <strong id="sf-recruitment">Загрузка...</strong></p>
+  <p>Объявление: <span id="sf-announcement">Загрузка...</span></p>
+
+  <hr>
+
+  <h3> // ADMIN LOGIN</h3>
+  <input id="sf-email" type="email" placeholder="Email администратора">
+  <input id="sf-password" type="password" placeholder="Пароль">
+  <button id="sf-login">Войти</button>
+  <button id="sf-logout">Выйти</button>
+  <p id="sf-message" class="sf-muted">Ожидание входа...</p>
+
+  <div id="sf-controls" hidden>
+    <h3> // CONTROL PANEL</h3>
+    <input id="sf-new-status" placeholder="Статус дома, например Активен">
+    <input id="sf-new-recruitment" placeholder="Набор: Открыт или Закрыт">
+    <textarea id="sf-new-announcement" placeholder="Новое объявление"></textarea>
+    <button id="sf-save">Сохранить изменения</button>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(() => {
+  const SUPABASE_URL = "https://lxdyomclanvyqsadpirl.supabase.co/rest/v1/";
+  const SUPABASE_KEY = "sb_publishable_VbT5fZOaz9mAJQ8-1J_6dg_MvB58iBu";
+
+  const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  const $ = id => document.getElementById(id);
+  const message = text => $("sf-message").textContent = text;
+
+  async function loadStatus() {
+    const { data, error } = await db
+      .from("house_status")
+      .select("status,recruitment,announcement")
+      .eq("id", 1)
+      .single();
+
+    if (error) {
+      $("sf-status").textContent = "Ошибка загрузки";
+      message("Не удалось загрузить статус. Проверь настройки Supabase.");
+      return;
+    }
+
+    $("sf-status").textContent = data.status;
+    $("sf-recruitment").textContent = data.recruitment;
+    $("sf-announcement").textContent = data.announcement;
+
+    $("sf-new-status").value = data.status;
+    $("sf-new-recruitment").value = data.recruitment;
+    $("sf-new-announcement").value = data.announcement;
+  }
+
+  async function refreshLogin() {
+    const { data } = await db.auth.getSession();
+    const loggedIn = !!data.session;
+    $("sf-controls").hidden = !loggedIn;
+    message(loggedIn ? "Вход выполнен." : "Войдите в аккаунт администратора.");
+  }
+
+  $("sf-login").onclick = async () => {
+    const { error } = await db.auth.signInWithPassword({
+      email: $("sf-email").value.trim(),
+      password: $("sf-password").value
+    });
+
+    if (error) {
+      message("Ошибка входа: " + error.message);
+      return;
+    }
+
+    $("sf-password").value = "";
+    await refreshLogin();
+  };
+
+  $("sf-logout").onclick = async () => {
+    await db.auth.signOut();
+    await refreshLogin();
+  };
+
+  $("sf-save").onclick = async () => {
+    const { data: sessionData } = await db.auth.getSession();
+    if (!sessionData.session) {
+      message("Сначала войди в аккаунт.");
+      return;
+    }
+
+    const { error } = await db
+      .from("house_status")
+      .update({
+        status: $("sf-new-status").value.trim(),
+        recruitment: $("sf-new-recruitment").value.trim(),
+        announcement: $("sf-new-announcement").value.trim(),
+        updated_at: new Date().toISOString()
+      })
+      .eq("id", 1);
+
+    if (error) {
+      message("Не удалось сохранить: " + error.message);
+      return;
+    }
+
+    message("Изменения сохранены!");
+    await loadStatus();
+  };
+
+  db.auth.onAuthStateChange(() => {
+    refreshLogin();
+  });
+
+  loadStatus();
+  refreshLogin();
+})();
+</script>
+```
+
+
 </html>
