@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SoerFamily — Secret Project</title>
+<title>SoerFamily — Minecraft House</title>
 
 <style>
 * { box-sizing: border-box; }
@@ -13,7 +13,7 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   background: #09060b;
-  color: #fff;
+  color: white;
   font-family: Arial, sans-serif;
 }
 
@@ -30,13 +30,14 @@ header {
   font-weight: bold;
   text-shadow: 0 0 15px #ff1684;
   cursor: pointer;
+  user-select: none;
 }
 
 nav { margin-top: 18px; }
 
 nav a {
   display: inline-block;
-  color: #fff;
+  color: white;
   text-decoration: none;
   margin: 7px 12px;
 }
@@ -93,6 +94,7 @@ section {
   color: #ff4eae;
   font-size: 21px;
   font-weight: bold;
+  text-shadow: 0 0 10px #ff168455;
   overflow-wrap: anywhere;
 }
 
@@ -107,10 +109,13 @@ section {
   display: inline-block;
   margin-top: 12px;
   padding: 12px 20px;
-  color: #fff;
+  color: white;
   background: #d91b80;
   border-radius: 8px;
   text-decoration: none;
+  transition: 0.2s;
+  border: none;
+  cursor: pointer;
 }
 
 .button:hover {
@@ -130,6 +135,12 @@ section {
 
 .rule strong { color: #ff8bc9; }
 
+#sf-rule-exception {
+  color: #ff8bc9;
+  cursor: pointer;
+  text-decoration: underline dotted;
+}
+
 footer {
   padding: 25px;
   text-align: center;
@@ -137,123 +148,87 @@ footer {
   border-top: 1px solid #57203f;
 }
 
-#sf-secret {
-  position: fixed;
-  bottom: 8px;
-  right: 8px;
-  z-index: 9999;
-  color: #ff4fa3;
+#sf-footer-star {
+  display: inline-block;
+  margin-left: 7px;
+  color: #ff4eae;
   cursor: pointer;
-  font-size: 20px;
   user-select: none;
 }
 
-#sf-secret:focus-visible,
-#sf-trace-footer-trigger:focus-visible {
-  outline: 2px solid #fff;
-}
-
-.sf-quest-overlay {
+.sf-overlay {
   display: none;
   position: fixed;
   inset: 0;
-  z-index: 10010;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
+  z-index: 10000;
   background: #050008ee;
   color: #ff75bd;
-  font-family: monospace;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  padding: 20px;
+  font-family: monospace;
   overflow-y: auto;
 }
 
-.sf-quest-card {
+.sf-box {
   width: 100%;
-  max-width: 430px;
-  padding: 28px;
-  background: #100914;
+  max-width: 460px;
   border: 1px solid #ff4fa3;
-  box-shadow: 0 0 28px #ff168855;
+  padding: 26px;
+  background: #100812;
+  box-shadow: 0 0 25px #ff168855;
+  border-radius: 10px;
 }
 
-.sf-quest-card h2 { color: #ff75bd; }
+.sf-code {
+  font-size: 12px;
+  letter-spacing: 3px;
+  overflow-wrap: anywhere;
+}
 
-.sf-quest-card button {
-  padding: 11px 18px;
-  margin: 8px 4px 0;
-  border: 0;
-  border-radius: 5px;
+.sf-overlay h2 { color: #ff75bd; }
+
+.sf-overlay p {
+  color: #f4dce9;
+  line-height: 1.7;
+}
+
+.sf-overlay input {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  background: #09060b;
+  color: white;
+  border: 1px solid #ff4fa3;
+  border-radius: 6px;
+  outline: none;
+}
+
+.sf-overlay button {
   background: #ff4fa3;
   color: #10000b;
-  cursor: pointer;
-}
-
-.sf-quest-card input {
-  display: block;
-  width: 100%;
-  box-sizing: border-box;
-  margin-top: 14px;
-  padding: 12px;
-  border: 1px solid #ff4fa3;
-  background: #09060b;
-  color: #fff;
-}
-
-#sf-trace-trigger,
-#sf-trace-footer-trigger {
-  color: #ff75bd;
-  cursor: pointer;
-  text-decoration: underline dotted;
-  text-underline-offset: 4px;
-}
-
-#sf-trace-footer-trigger {
-  display: inline-block;
-  padding: 3px;
-}
-
-#sf-panel {
-  background: #090909;
-  color: #ff4da6;
-  border: 1px solid #ff168a;
-  border-radius: 12px;
-  padding: 20px;
-  margin: 25px auto;
-  max-width: 650px;
-  font-family: monospace;
-  box-shadow: 0 0 18px #ff168a33;
-}
-
-#sf-panel input,
-#sf-panel textarea {
-  display: block;
-  width: 100%;
-  margin: 10px 0;
-  padding: 11px;
-  background: #151515;
-  color: #fff;
-  border: 1px solid #ff168a;
-  border-radius: 6px;
-}
-
-#sf-panel button {
-  padding: 10px 15px;
-  margin: 5px 5px 5px 0;
-  background: #ff168a;
-  color: #fff;
   border: 0;
   border-radius: 6px;
+  padding: 11px 17px;
+  margin: 5px;
   cursor: pointer;
+  font-weight: bold;
 }
 
-#sf-panel .sf-muted { color: #aaa; }
+.sf-overlay button:hover { background: #ff8bc9; }
+
+.sf-error {
+  min-height: 22px;
+  color: #ff8bc9 !important;
+}
 
 @media (max-width: 600px) {
   h1 { font-size: 29px; }
   header { padding: 18px 10px; }
   nav a { margin: 7px; }
   section { padding: 17px; }
+  .sf-box { padding: 19px; }
 }
 </style>
 </head>
@@ -261,9 +236,7 @@ footer {
 <body>
 
 <header>
-  <div class="logo" id="sf-secret-logo" title="Иногда стоит нажать трижды">
-    𝑺𝒐𝒆𝒓𝑭𝒂𝒎𝒊𝒍𝒚
-  </div>
+  <div class="logo" id="sf-logo" title="...">𝑺𝒐𝒆𝒓𝑭𝒂𝒎𝒊𝒍𝒚</div>
   <nav>
     <a href="#about">О хаусе</a>
     <a href="#team">Администрация</a>
@@ -327,7 +300,7 @@ footer {
     <div class="rule"><strong>2.10.</strong> Решения администрации обязательны к исполнению. Если вы не согласны с решением, вы можете вежливо обжаловать его, предоставив доказательства владельцу сервера или старшему администратору в личных сообщениях.</div>
 
     <h3>03. Игровой процесс</h3>
-    <div class="rule"><strong>3.1.</strong> Запрещено портить имущество других игроков (гриферство), красть вещи и убивать принадлежащих другим игрокам мобов на их территории. <span id="sf-rule-exception">Исключение</span> — естественно появившиеся монстры, если они появились в вашем присутствии.</div>
+    <div class="rule"><strong>3.1.</strong> Запрещено портить имущество других игроков (гриферство), красть вещи и убивать принадлежащих другим игрокам мобов на их территории. <span id="sf-rule-exception" title="...">Исключение</span> — естественно появившиеся монстры, если они появились в вашем присутствии.</div>
     <div class="rule"><strong>3.2.</strong> Запрещено заселяться на чужих территориях без согласия владельца.</div>
     <div class="rule"><strong>3.3.</strong> Запрещено игнорировать запретительные таблички. Если на входе указано, что посещение запрещено, либо владелец территории прямо запретил вход в чате, необходимо соблюдать этот запрет.</div>
     <div class="rule"><strong>3.4.</strong> Запрещено строить сооружения и механизмы, которые физически затрагивают чужую территорию, перегружают сервер, вызывают лаги или создают дискомфорт другим игрокам.</div>
@@ -349,341 +322,195 @@ footer {
       💗 Перейти в Telegram
     </a>
   </section>
-
-  <!-- Панель статуса и входа администратора -->
-  <section id="sf-panel">
-    <h2>&gt; SOERFAMILY_STATUS.exe</h2>
-    <p>Статус дома: <strong id="sf-status">Загрузка...</strong></p>
-    <p>Набор: <strong id="sf-recruitment">Загрузка...</strong></p>
-    <p>Объявление: <span id="sf-announcement">Загрузка...</span></p>
-
-    <hr>
-
-    <h3>// ADMIN LOGIN</h3>
-    <input id="sf-email" type="email" placeholder="Email администратора" autocomplete="username">
-    <input id="sf-password" type="password" placeholder="Пароль" autocomplete="current-password">
-    <button id="sf-login" type="button">Войти</button>
-    <button id="sf-logout" type="button">Выйти</button>
-    <p id="sf-admin-message" class="sf-muted">Ожидание входа...</p>
-
-    <div id="sf-controls" hidden>
-      <h3>// CONTROL PANEL</h3>
-      <input id="sf-new-status" placeholder="Статус дома, например Активен">
-      <input id="sf-new-recruitment" placeholder="Набор: Открыт или Закрыт">
-      <textarea id="sf-new-announcement" placeholder="Новое объявление"></textarea>
-      <button id="sf-save" type="button">Сохранить изменения</button>
-    </div>
-  </section>
 </main>
 
 <footer>
   © 2026 𝑺𝒐𝒆𝒓𝑭𝒂𝒎𝒊𝒍𝒚
-  <span id="sf-trace-footer-trigger" title="Три нажатия — ещё один след" role="button" tabindex="0">✦</span>
+  <span id="sf-footer-star" title="...">✦</span>
 </footer>
 
-<!-- TRACE 001: Первая загадка -->
-<div id="sf-secret" title="Секрет" role="button" tabindex="0">✦</div>
-
-<div id="sf-easter-message" class="sf-quest-overlay">
-  <div class="sf-quest-card">
-    <p>SOERFAMILY // UNKNOWN</p>
+<!-- Первый след -->
+<div id="sf-trace-1" class="sf-overlay">
+  <div class="sf-box">
+    <div class="sf-code">SOERFAMILY // UNKNOWN</div>
     <h2>Ты нашёл первый след.</h2>
     <p>Не все секреты скрыты в темноте.</p>
     <p>Иногда нужно внимательно посмотреть на то, что уже перед глазами.</p>
-    <button type="button" data-sf-close="sf-easter-message">Продолжить поиск</button>
+    <button data-close="sf-trace-1">Продолжить поиск</button>
   </div>
 </div>
 
-<!-- TRACE 002: Логотип -->
-<div id="sf-trace-two" class="sf-quest-overlay">
-  <div class="sf-quest-card">
-    <p>SOERFAMILY // TRACE_002</p>
+<!-- Второй след -->
+<div id="sf-trace-2" class="sf-overlay">
+  <div class="sf-box">
+    <div class="sf-code">SOERFAMILY // TRACE_002</div>
     <h2>Ты ищешь не там.</h2>
     <p>Трижды посмотри туда, где начинается история.</p>
     <p>Ответ спрятан не в словах, а между ними.</p>
-    <button type="button" data-sf-close="sf-trace-two">Вернуться</button>
+    <button data-close="sf-trace-2">Продолжить поиск</button>
   </div>
 </div>
 
-<!-- TRACE 003: Правила -->
-<div id="sf-trace-three" class="sf-quest-overlay">
-  <div class="sf-quest-card">
-    <p>SOERFAMILY // TRACE_003</p>
+<!-- Третий след -->
+<div id="sf-trace-3" class="sf-overlay">
+  <div class="sf-box">
+    <div class="sf-code">SOERFAMILY // TRACE_003</div>
     <h2>Ты заметил исключение.</h2>
     <p>Не каждое правило рассказывает всю историю.</p>
     <p>Иногда самое важное скрывается в одной детали.</p>
-    <button type="button" data-sf-close="sf-trace-three">Продолжить</button>
+    <button data-close="sf-trace-3">Продолжить поиск</button>
   </div>
 </div>
 
-<!-- TRACE 004: Подвал -->
-<div id="sf-trace-four" class="sf-quest-overlay">
-  <div class="sf-quest-card">
-    <p>SOERFAMILY // TRACE_004</p>
+<!-- Четвёртый след -->
+<div id="sf-trace-4" class="sf-overlay">
+  <div class="sf-box">
+    <div class="sf-code">SOERFAMILY // TRACE_004</div>
     <h2>Ты почти у цели.</h2>
     <p>Название состоит из двух частей.</p>
     <p>Убери первую — получишь ключ к последней двери.</p>
-    <button type="button" id="sf-open-final">Открыть последнюю дверь</button>
-    <button type="button" data-sf-close="sf-trace-four">Позже</button>
+    <button data-close="sf-trace-4">Последняя дверь</button>
   </div>
 </div>
 
-<!-- ФИНАЛ -->
-<div id="sf-trace-final" class="sf-quest-overlay">
-  <div class="sf-quest-card">
-    <p>SOERFAMILY // UNKNOWN ENTITY</p>
+<!-- Последняя дверь -->
+<div id="sf-final" class="sf-overlay">
+  <div class="sf-box">
+    <div class="sf-code">SOERFAMILY // FINAL GATE</div>
     <h2>Последняя дверь</h2>
-    <p>Введи слово, которое осталось после удаления первой части названия.</p>
-
+    <p>Введи ключ, который ты нашёл в предыдущей загадке.</p>
     <form id="sf-final-form">
-      <input id="sf-final-answer" type="text" placeholder="Введи пароль..." autocomplete="off" maxlength="40">
+      <input id="sf-final-key" type="text" placeholder="Ключ..." autocomplete="off">
       <button type="submit">Открыть</button>
     </form>
+    <p id="sf-final-error" class="sf-error"></p>
+    <button data-close="sf-final">Назад</button>
+  </div>
+</div>
 
-    <p id="sf-final-feedback" aria-live="polite"></p>
-
-    <div id="sf-final-reveal" hidden>
-      <h2>ТЫ НАШЁЛ НАС.</h2>
-      <p>Ты прошёл все следы и дошёл до конца.</p>
-      <p>Но теперь ты знаешь: у SoerFamily есть история, которую видят не все.</p>
-      <p>Это не конец. Это только начало.</p>
-      <p>SOERFAMILY // CONNECTION ESTABLISHED</p>
-    </div>
-
-    <button type="button" data-sf-close="sf-trace-final">Закрыть</button>
+<!-- Финал -->
+<div id="sf-trace-5" class="sf-overlay">
+  <div class="sf-box">
+    <div class="sf-code">SOERFAMILY // CONNECTION ESTABLISHED</div>
+    <h2>ТЫ НАШЁЛ НАС.</h2>
+    <p>Ты прошёл все следы и дошёл до конца.</p>
+    <p>Но теперь ты знаешь: у SoerFamily есть история, которую видят не все.</p>
+    <p>Это не конец. Это только начало.</p>
+    <button data-close="sf-trace-5">Завершить</button>
   </div>
 </div>
 
 <script>
 (() => {
   const $ = id => document.getElementById(id);
-  const show = id => {
-    const panel = $(id);
-    if (panel) panel.style.display = "flex";
-  };
-  const hide = id => {
-    const panel = $(id);
-    if (panel) panel.style.display = "none";
-  };
 
-  // Закрытие окон
-  document.querySelectorAll("[data-sf-close]").forEach(button => {
-    button.addEventListener("click", () => hide(button.dataset.sfClose));
+  function openTrace(id) {
+    const element = $(id);
+    if (element) element.style.display = "flex";
+  }
+
+  function closeTrace(id) {
+    const element = $(id);
+    if (element) element.style.display = "none";
+  }
+
+  // Этап 1: секретная звезда в правом нижнем углу.
+  const secretStar = document.createElement("span");
+  secretStar.textContent = "✦";
+  secretStar.title = "...";
+  secretStar.style.cssText =
+    "position:fixed;bottom:8px;right:8px;z-index:9999;color:#ff4fa3;cursor:pointer;font-size:18px;user-select:none";
+  document.body.appendChild(secretStar);
+  secretStar.addEventListener("click", () => openTrace("sf-trace-1"));
+
+  // Этап 2: три нажатия на логотип.
+  let logoClicks = 0;
+  let logoTimer;
+  $("sf-logo").addEventListener("click", () => {
+    logoClicks++;
+    clearTimeout(logoTimer);
+
+    if (logoClicks >= 3) {
+      logoClicks = 0;
+      openTrace("sf-trace-2");
+      return;
+    }
+
+    logoTimer = setTimeout(() => {
+      logoClicks = 0;
+    }, 900);
   });
 
-  [
-    "sf-easter-message",
-    "sf-trace-two",
-    "sf-trace-three",
-    "sf-trace-four",
-    "sf-trace-final"
-  ].forEach(id => {
-    const panel = $(id);
-    if (!panel) return;
-    panel.addEventListener("click", event => {
-      if (event.target === panel) hide(id);
+  // Этап 3: нажатие на слово «Исключение».
+  $("sf-rule-exception").addEventListener("click", () => {
+    openTrace("sf-trace-3");
+  });
+
+  // Этап 4: три нажатия на звезду в подвале.
+  let footerClicks = 0;
+  let footerTimer;
+  $("sf-footer-star").addEventListener("click", () => {
+    footerClicks++;
+    clearTimeout(footerTimer);
+
+    if (footerClicks >= 3) {
+      footerClicks = 0;
+      openTrace("sf-trace-4");
+      return;
+    }
+
+    footerTimer = setTimeout(() => {
+      footerClicks = 0;
+    }, 900);
+  });
+
+  // Переход к последней двери.
+  document.querySelector('[data-close="sf-trace-4"]')
+    .addEventListener("click", () => {
+      closeTrace("sf-trace-4");
+      openTrace("sf-final");
+    });
+
+  // Этап 5: проверка ключа.
+  $("sf-final-form").addEventListener("submit", event => {
+    event.preventDefault();
+
+    const key = $("sf-final-key").value.trim().toUpperCase();
+
+    if (key === "FAMILY") {
+      closeTrace("sf-final");
+      $("sf-final-error").textContent = "";
+      $("sf-final-key").value = "";
+      openTrace("sf-trace-5");
+    } else {
+      $("sf-final-error").textContent = "Ключ не подходит. Подумай ещё.";
+    }
+  });
+
+  // Закрытие окон кнопками.
+  document.querySelectorAll("[data-close]").forEach(button => {
+    button.addEventListener("click", () => {
+      closeTrace(button.dataset.close);
     });
   });
 
-  // TRACE 001: звёздочка
-  const star = $("sf-secret");
-  if (star) {
-    star.addEventListener("click", () => show("sf-easter-message"));
-    star.addEventListener("keydown", event => {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        show("sf-easter-message");
+  // Закрытие при нажатии на затемнённый фон.
+  document.querySelectorAll(".sf-overlay").forEach(overlay => {
+    overlay.addEventListener("click", event => {
+      if (event.target === overlay) {
+        closeTrace(overlay.id);
       }
     });
-  }
-
-  // TRACE 002: три нажатия на логотип
-  const logo = $("sf-secret-logo");
-  if (logo) {
-    let clicks = 0;
-
-    logo.addEventListener("click", () => {
-      clicks++;
-      if (clicks >= 3) {
-        clicks = 0;
-        show("sf-trace-two");
-      }
-    });
-  }
-
-  // TRACE 003: слово в правиле 3.1
-  const exception = $("sf-rule-exception");
-  if (exception) {
-    exception.id = "sf-trace-trigger";
-    exception.title = "Здесь спрятан следующий след";
-    exception.addEventListener("click", () => show("sf-trace-three"));
-  }
-
-  // TRACE 004: три нажатия на звёздочку в подвале
-  const footerStar = $("sf-trace-footer-trigger");
-  if (footerStar) {
-    let clicks = 0;
-
-    const countClick = () => {
-      clicks++;
-      if (clicks >= 3) {
-        clicks = 0;
-        show("sf-trace-four");
-      }
-    };
-
-    footerStar.addEventListener("click", countClick);
-    footerStar.addEventListener("keydown", event => {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        countClick();
-      }
-    });
-  }
-
-  // Переход к финальной двери
-  const finalButton = $("sf-open-final");
-  if (finalButton) {
-    finalButton.addEventListener("click", () => {
-      hide("sf-trace-four");
-      show("sf-trace-final");
-    });
-  }
-
-  // Проверка финального пароля
-  const form = $("sf-final-form");
-  if (form) {
-    form.addEventListener("submit", event => {
-      event.preventDefault();
-
-      const answer = $("sf-final-answer").value.trim().toLowerCase();
-
-      if (answer === "family") {
-        $("sf-final-feedback").textContent = "";
-        $("sf-final-reveal").hidden = false;
-        $("sf-final-answer").disabled = true;
-        form.querySelector("button").disabled = true;
-      } else {
-        $("sf-final-feedback").textContent =
-          "Код не подходит. Вспомни подсказку TRACE_004.";
-      }
-    });
-  }
-})();
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<script>
-(() => {
-  const SUPABASE_URL = "https://lxdyomclanvyqsadpirl.supabase.co";
-  const SUPABASE_KEY = "sb_publishable_VbT5fZOaz9mAJQ8-1J_6dg_MvB58iBu";
-
-  const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-  const $ = id => document.getElementById(id);
-
-  const message = text => {
-    $("sf-admin-message").textContent = text;
-  };
-
-  async function loadStatus() {
-    const { data, error } = await db
-      .from("house_status")
-      .select("status,recruitment,announcement")
-      .eq("id", 1)
-      .single();
-
-    if (error) {
-      $("sf-status").textContent = "Ошибка загрузки";
-      $("sf-recruitment").textContent = "—";
-      $("sf-announcement").textContent = "—";
-      message("Не удалось загрузить статус. Проверь настройки Supabase.");
-      return;
-    }
-
-    $("sf-status").textContent = data.status ?? "";
-    $("sf-recruitment").textContent = data.recruitment ?? "";
-    $("sf-announcement").textContent = data.announcement ?? "";
-
-    $("sf-new-status").value = data.status ?? "";
-    $("sf-new-recruitment").value = data.recruitment ?? "";
-    $("sf-new-announcement").value = data.announcement ?? "";
-  }
-
-  async function refreshLogin() {
-    const { data, error } = await db.auth.getSession();
-
-    if (error) {
-      message("Не удалось проверить вход.");
-      return;
-    }
-
-    const loggedIn = !!data.session;
-    $("sf-controls").hidden = !loggedIn;
-    message(loggedIn
-      ? "Вход выполнен."
-      : "Войдите в аккаунт администратора.");
-  }
-
-  $("sf-login").addEventListener("click", async () => {
-    const { error } = await db.auth.signInWithPassword({
-      email: $("sf-email").value.trim(),
-      password: $("sf-password").value
-    });
-
-    if (error) {
-      message("Ошибка входа: " + error.message);
-      return;
-    }
-
-    $("sf-password").value = "";
-    await refreshLogin();
   });
 
-  $("sf-logout").addEventListener("click", async () => {
-    const { error } = await db.auth.signOut();
-
-    if (error) {
-      message("Не удалось выйти из аккаунта.");
-      return;
+  // Закрытие клавишей Escape.
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+      document.querySelectorAll(".sf-overlay").forEach(overlay => {
+        closeTrace(overlay.id);
+      });
     }
-
-    await refreshLogin();
   });
-
-  $("sf-save").addEventListener("click", async () => {
-    const { data, error: sessionError } = await db.auth.getSession();
-
-    if (sessionError || !data.session) {
-      message("Сначала войди в аккаунт.");
-      return;
-    }
-
-    const { error } = await db
-      .from("house_status")
-      .update({
-        status: $("sf-new-status").value.trim(),
-        recruitment: $("sf-new-recruitment").value.trim(),
-        announcement: $("sf-new-announcement").value.trim(),
-        updated_at: new Date().toISOString()
-      })
-      .eq("id", 1);
-
-    if (error) {
-      message("Не удалось сохранить: " + error.message);
-      return;
-    }
-
-    message("Изменения сохранены!");
-    await loadStatus();
-  });
-
-  db.auth.onAuthStateChange(() => {
-    refreshLogin();
-  });
-
-  loadStatus();
-  refreshLogin();
 })();
 </script>
 
