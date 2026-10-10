@@ -1,5 +1,5 @@
+<CodeBlock language="html" editable>
 <!DOCTYPE html>
-
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
@@ -8,6 +8,7 @@
 <style>
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+
 body {
   margin: 0;
   background: #09060b;
@@ -50,7 +51,10 @@ main {
 h1 { font-size: 38px; color: #ff4eae; }
 h2 { color: #ff4eae; }
 h3 { color: #ff8bc9; }
-p, li { line-height: 1.8; color: #e8dce6; }
+p, li {
+  line-height: 1.8;
+  color: #e8dce6;
+}
 section {
   margin-top: 28px;
   padding: 22px;
@@ -113,135 +117,45 @@ footer {
   color: #a99aa6;
   border-top: 1px solid #57203f;
 }
-@media (max-width: 600px) {
-  h1 { font-size: 29px; }
-  header { padding: 18px 10px; }
-  nav a { margin: 7px; }
-  section { padding: 17px; }
+/* Секретная пасхалка */
+#sf-secret {
+  position: fixed;
+  bottom: 8px;
+  right: 8px;
+  z-index: 9999;
+  color: #ff4fa3;
+  opacity: 1;
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
 }
-</style>
-</head>
-<body>
-
-<header>
-  <div class="logo">𝑺𝒐𝒆𝒓𝑭𝒂𝒎𝒊𝒍𝒚</div>
-  <nav>
-    <a href="#about">О хаусе</a>
-    <a href="#team">Администрация</a>
-    <a href="#rules">Правила</a>
-    <a href="#contacts">Telegram</a>
-  </nav>
-</header>
-
-<main>
-  <div class="hero">
-    <h1>𝑺𝒐𝒆𝒓𝑭𝒂𝒎𝒊𝒍𝒚</h1>
-    <p>Наша семья — наша сила.</p>
-    <p>Добро пожаловать на официальный сайт Minecraft-хауса!</p>
-    <a class="button" href="#about">Узнать больше</a>
-  </div>
-
-  <section id="about">
-    <h2>🖤 О нашем хаусе</h2>
-    <p>𝑺𝒐𝒆𝒓𝑭𝒂𝒎𝒊𝒍𝒚 — место для общения, совместной игры и новых приключений в Minecraft.</p>
-  </section>
-
-  <section id="team">
-    <h2>👑 Владелец и администрация</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>👑 Владелец хауса</h3>
-        <p class="member-name">Saffiik0</p>
-        <p class="member-role">Owner · SoerFamily</p>
-      </div>
-      <div class="card">
-        <h3>🛡️ Администрация</h3>
-        <p class="member-name">emcwet</p>
-        <p class="member-role">jr admin</p>
-        <p class="member-name">Kirrr1kk</p>
-        <p class="member-role">St admin</p>
-        <p class="member-name">кот👿👿</p>
-        <p class="member-role">tex admin</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="rules">
-    <h2>📜 Правила хауса</h2>
-    <p>Незнание правил не освобождает от ответственности. Соблюдайте правила и уважайте других игроков.</p>
-
-```
-<h3>01. Примечания</h3>
-<div class="rule"><strong>1.1.</strong> Правила не могут предусмотреть абсолютно все ситуации. Соблюдайте адекватность и уважайте окружающих.</div>
-<div class="rule"><strong>1.2.</strong> Запрещено искать лазейки в правилах и использовать их для оправдания недопустимого поведения. Администрация вправе принимать меры в ситуациях, требующих вмешательства, даже если конкретный случай прямо не описан в правилах.</div>
-
-<h3>02. Чат и атмосфера</h3>
-<div class="rule"><strong>2.1.</strong> Запрещена реклама без согласования с администрацией.</div>
-<div class="rule"><strong>2.2.</strong> Запрещены оскорбления, провокации, дискриминация, обсуждение политики, упоминание Третьего рейха и аналогичная запрещённая тематика.</div>
-<div class="rule"><strong>2.3.</strong> Запрещено неуважительное отношение к участникам чата.</div>
-<div class="rule"><strong>2.4.</strong> Запрещён спам сообщениями.</div>
-<div class="rule"><strong>2.5.</strong> Запрещено распространять, публиковать, обсуждать и отправлять порнографический, шокирующий, отталкивающий и другой NSFW-контент.</div>
-<div class="rule"><strong>2.6.</strong> Запрещён контент с жестокостью, угрозами жизни, пропагандой терроризма, расизма и нацизма, а также материалы, нарушающие установленные ограничения проекта.</div>
-<div class="rule"><strong>2.7.</strong> Запрещено распространять подозрительные и вредоносные ссылки.</div>
-<div class="rule"><strong>2.8.</strong> Запрещено публиковать и распространять личную информацию других людей без их согласия.</div>
-<div class="rule"><strong>2.9.</strong> Если участник отказал вам в просьбе, уважайте его решение. Не преследуйте его и не продолжайте навязчиво добиваться своего.</div>
-<div class="rule"><strong>2.10.</strong> Решения администрации обязательны к исполнению. Если вы не согласны с решением, вы можете вежливо обжаловать его, предоставив доказательства владельцу сервера или старшему администратору в личных сообщениях.</div>
-
-<h3>03. Игровой процесс</h3>
-<div class="rule"><strong>3.1.</strong> Запрещено портить имущество других игроков (гриферство), красть вещи и убивать принадлежащих другим игрокам мобов на их территории. Исключение — естественно появившиеся монстры, если они появились в вашем присутствии.</div>
-<div class="rule"><strong>3.2.</strong> Запрещено заселяться на чужих территориях без согласия владельца.</div>
-<div class="rule"><strong>3.3.</strong> Запрещено игнорировать запретительные таблички. Если на входе указано, что посещение запрещено, либо владелец территории прямо запретил вход в чате, необходимо соблюдать этот запрет.</div>
-<div class="rule"><strong>3.4.</strong> Запрещено строить сооружения и механизмы, которые физически затрагивают чужую территорию, перегружают сервер, вызывают лаги или создают дискомфорт другим игрокам.</div>
-<div class="rule"><strong>3.5.</strong> Запрещены сторонние программы и модификации, дающие игровое преимущество, включая KillAura и X-Ray. Разрешены OptiFine, MiniMap (без использования для просмотра пространства над или под игроком) и шейдеры.</div>
-<div class="rule"><strong>3.6.</strong> Запрещено скрывать от администрации найденные баги и дюпы. Если вы обнаружили уязвимость или знаете о её использовании другими игроками, сообщите администрации.</div>
-<div class="rule"><strong>3.7.</strong> Не создавайте бессмысленные постройки. Временный начальный дом не считается нарушением, если впоследствии вы планируете его убрать.</div>
-<div class="rule"><strong>3.8.</strong> Заделывайте ямы, оставленные криперами, и срубайте деревья до конца, не оставляя парящие части ствола.</div>
-<div class="rule"><strong>3.9.</strong> Обязательно обозначайте свою территорию тропинкой, созданной с помощью лопаты, и устанавливайте табличку со своим ником.</div>
-<div class="rule"><strong>3.10.</strong> Использование багов, дюпов и других игровых уязвимостей для получения преимуществ строго запрещено.</div>
-
-<p><strong>🩷 Соблюдайте правила и уважайте других игроков!</strong></p>
-<p>Администрация оставляет за собой право принимать меры при нарушении правил.</p>
-```
-
-  </section>
-
-  <section id="contacts">
-    <h2>💌 Наш Telegram</h2>
-    <p>Присоединяйся к сообществу 𝑺𝒐𝒆𝒓𝑭𝒂𝒎𝒊𝒍𝒚!</p>
-    <a class="button" href="https://t.me/SoerFamily" target="_blank" rel="noopener noreferrer">
-      💗 Перейти в Telegram
-    </a>
-  </section>
-</main>
-
-<footer>© 2026 𝑺𝒐𝒆𝒓𝑭𝒂𝒎𝒊𝒍𝒚</footer>
-</body>
-<!-- SOERFAMILY SECRET EASTER EGG -->
-<div id="sf-secret" style="position:fixed;bottom:8px;right:8px;z-index:9999;color:#ff4fa3;opacity:1;cursor:pointer;font-size:18px;user-select:none" title="...">✦</div>
-<div id="sf-message" style="display:none;position:fixed;inset:0;z-index:10000;background:#050008ee;color:#ff75bd;align-items:center;justify-content:center;text-align:center;padding:24px;font-family:monospace">
-  <div style="max-width:420px;border:1px solid #ff4fa3;padding:28px;box-shadow:0 0 25px #ff168855">
-    <div style="font-size:12px;letter-spacing:4px">SOERFAMILY // UNKNOWN</div>
-    <h2>Ты нашёл первый след.</h2>
-    <p>Не все секреты скрыты в темноте.</p>
-    <p>Иногда нужно внимательно посмотреть на то, что уже перед глазами.</p>
-    <button id="sf-close" style="background:#ff4fa3;color:#10000b;border:0;padding:10px 18px;cursor:pointer">Продолжить поиск</button>
-  </div>
-</div>
-<script>
-(function(){
-  const star=document.getElementById('sf-secret');
-  const panel=document.getElementById('sf-message');
-  const close=document.getElementById('sf-close');
-  if(!star||!panel||!close)return;
-  star.addEventListener('click',()=>{panel.style.display='flex';});
-  close.addEventListener('click',()=>{panel.style.display='none';});
-  panel.addEventListener('click',e=>{if(e.target===panel)panel.style.display='none';});
-})();
-</script>
-
-  ```html
-<!-- SoerFamily Hacker Status Panel -->
-<style>
+#sf-easter-message {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: #050008ee;
+  color: #ff75bd;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  font-family: monospace;
+}
+#sf-easter-card {
+  max-width: 420px;
+  border: 1px solid #ff4fa3;
+  padding: 28px;
+  box-shadow: 0 0 25px #ff168855;
+}
+#sf-easter-close {
+  background: #ff4fa3;
+  color: #10000b;
+  border: 0;
+  padding: 10px 18px;
+  cursor: pointer;
+}
+/* Панель статуса и администратора */
 #sf-panel {
   background: #090909;
   color: #ff4da6;
@@ -254,7 +168,8 @@ footer {
   box-shadow: 0 0 18px #ff168a33;
 }
 #sf-panel h2 { color: #ff4da6; }
-#sf-panel input, #sf-panel textarea {
+#sf-panel input,
+#sf-panel textarea {
   display: block;
   width: 100%;
   box-sizing: border-box;
@@ -275,99 +190,228 @@ footer {
   cursor: pointer;
 }
 #sf-panel .sf-muted { color: #aaa; }
+@media (max-width: 600px) {
+  h1 { font-size: 29px; }
+  header { padding: 18px 10px; }
+  nav a { margin: 7px; }
+  section { padding: 17px; }
+}
 </style>
-
-<section id="sf-panel">
-  <h2>&gt; SOERFAMILY_STATUS.exe</h2>
-  <p>Статус дома: <strong id="sf-status">Загрузка...</strong></p>
-  <p>Набор: <strong id="sf-recruitment">Загрузка...</strong></p>
-  <p>Объявление: <span id="sf-announcement">Загрузка...</span></p>
-
-  <hr>
-
-  <h3> // ADMIN LOGIN</h3>
-  <input id="sf-email" type="email" placeholder="Email администратора">
-  <input id="sf-password" type="password" placeholder="Пароль">
-  <button id="sf-login">Войти</button>
-  <button id="sf-logout">Выйти</button>
-  <p id="sf-message" class="sf-muted">Ожидание входа...</p>
-
-  <div id="sf-controls" hidden>
-    <h3> // CONTROL PANEL</h3>
-    <input id="sf-new-status" placeholder="Статус дома, например Активен">
-    <input id="sf-new-recruitment" placeholder="Набор: Открыт или Закрыт">
-    <textarea id="sf-new-announcement" placeholder="Новое объявление"></textarea>
-    <button id="sf-save">Сохранить изменения</button>
+</head>
+<body>
+<header>
+  <div class="logo">𝑺𝒐𝒆𝒓𝑭𝒂𝒎𝒊𝒍𝒚</div>
+  <nav>
+    <a href="#about">О хаусе</a>
+    <a href="#team">Администрация</a>
+    <a href="#rules">Правила</a>
+    <a href="#contacts">Telegram</a>
+  </nav>
+</header>
+<main>
+  <div class="hero">
+    <h1>𝑺𝒐𝒆𝒓𝑭𝒂𝒎𝒊𝒍𝒚</h1>
+    <p>Наша семья — наша сила.</p>
+    <p>Добро пожаловать на официальный сайт Minecraft-хауса!</p>
+    <a class="button" href="#about">Узнать больше</a>
   </div>
+<section id="about">
+    <h2>🖤 О нашем хаусе</h2>
+    <p>𝑺𝒐𝒆𝒓𝑭𝒂𝒎𝒊𝒍𝒚 — место для общения, совместной игры и новых приключений в Minecraft.</p>
+  </section>
+<section id="team">
+    <h2>👑 Владелец и администрация</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>👑 Владелец хауса</h3>
+        <p class="member-name">Saffiik0</p>
+        <p class="member-role">Owner · SoerFamily</p>
+      </div>
+<div class="card">
+        <h3>🛡️ Администрация</h3>
+        <p class="member-name">emcwet</p>
+        <p class="member-role">jr admin</p>
+        <p class="member-name">Kirrr1kk</p>
+        <p class="member-role">St admin</p>
+        <p class="member-name">кот👿👿</p>
+        <p class="member-role">tex admin</p>
+      </div>
+    </div>
+  </section>
+<section id="rules">
+    <h2>📜 Правила хауса</h2>
+    <p>Незнание правил не освобождает от ответственности. Соблюдайте правила и уважайте других игроков.</p>
+<h3>01. Примечания</h3>
+    <div class="rule"><strong>1.1.</strong> Правила не могут предусмотреть абсолютно все ситуации. Соблюдайте адекватность и уважайте окружающих.</div>
+    <div class="rule"><strong>1.2.</strong> Запрещено искать лазейки в правилах и использовать их для оправдания недопустимого поведения. Администрация вправе принимать меры в ситуациях, требующих вмешательства, даже если конкретный случай прямо не описан в правилах.</div>
+<h3>02. Чат и атмосфера</h3>
+    <div class="rule"><strong>2.1.</strong> Запрещена реклама без согласования с администрацией.</div>
+    <div class="rule"><strong>2.2.</strong> Запрещены оскорбления, провокации, дискриминация, обсуждение политики, упоминание Третьего рейха и аналогичная запрещённая тематика.</div>
+    <div class="rule"><strong>2.3.</strong> Запрещено неуважительное отношение к участникам чата.</div>
+    <div class="rule"><strong>2.4.</strong> Запрещён спам сообщениями.</div>
+    <div class="rule"><strong>2.5.</strong> Запрещено распространять, публиковать, обсуждать и отправлять порнографический, шокирующий, отталкивающий и другой NSFW-контент.</div>
+    <div class="rule"><strong>2.6.</strong> Запрещён контент с жестокостью, угрозами жизни, пропагандой терроризма, расизма и нацизма, а также материалы, нарушающие установленные ограничения проекта.</div>
+    <div class="rule"><strong>2.7.</strong> Запрещено распространять подозрительные и вредоносные ссылки.</div>
+    <div class="rule"><strong>2.8.</strong> Запрещено публиковать и распространять личную информацию других людей без их согласия.</div>
+    <div class="rule"><strong>2.9.</strong> Если участник отказал вам в просьбе, уважайте его решение. Не преследуйте его и не продолжайте навязчиво добиваться своего.</div>
+    <div class="rule"><strong>2.10.</strong> Решения администрации обязательны к исполнению. Если вы не согласны с решением, вы можете вежливо обжаловать его, предоставив доказательства владельцу сервера или старшему администратору в личных сообщениях.</div>
+<h3>03. Игровой процесс</h3>
+    <div class="rule"><strong>3.1.</strong> Запрещено портить имущество других игроков (гриферство), красть вещи и убивать принадлежащих другим игрокам мобов на их территории. Исключение — естественно появившиеся монстры, если они появились в вашем присутствии.</div>
+    <div class="rule"><strong>3.2.</strong> Запрещено заселяться на чужих территориях без согласия владельца.</div>
+    <div class="rule"><strong>3.3.</strong> Запрещено игнорировать запретительные таблички. Если на входе указано, что посещение запрещено, либо владелец территории прямо запретил вход в чате, необходимо соблюдать этот запрет.</div>
+    <div class="rule"><strong>3.4.</strong> Запрещено строить сооружения и механизмы, которые физически затрагивают чужую территорию, перегружают сервер, вызывают лаги или создают дискомфорт другим игрокам.</div>
+    <div class="rule"><strong>3.5.</strong> Запрещены сторонние программы и модификации, дающие игровое преимущество, включая KillAura и X-Ray. Разрешены OptiFine, MiniMap (без использования для просмотра пространства над или под игроком) и шейдеры.</div>
+    <div class="rule"><strong>3.6.</strong> Запрещено скрывать от администрации найденные баги и дюпы. Если вы обнаружили уязвимость или знаете о её использовании другими игроками, сообщите администрации.</div>
+    <div class="rule"><strong>3.7.</strong> Не создавайте бессмысленные постройки. Временный начальный дом не считается нарушением, если впоследствии вы планируете его убрать.</div>
+    <div class="rule"><strong>3.8.</strong> Заделывайте ямы, оставленные криперами, и срубайте деревья до конца, не оставляя парящие части ствола.</div>
+    <div class="rule"><strong>3.9.</strong> Обязательно обозначайте свою территорию тропинкой, созданной с помощью лопаты, и устанавливайте табличку со своим ником.</div>
+    <div class="rule"><strong>3.10.</strong> Использование багов, дюпов и других игровых уязвимостей для получения преимуществ строго запрещено.</div>
+<p><strong>🩷 Соблюдайте правила и уважайте других игроков!</strong></p>
+    <p>Администрация оставляет за собой право принимать меры при нарушении правил.</p>
+  </section>
+<section id="contacts">
+  <h2>💌 Наш Telegram</h2>
+  <p>Присоединяйся к сообществу 𝑺𝒐𝒆𝒓𝑭𝒂𝒎𝒊𝒍𝒚!</p>
+  <a class="button" href="https://t.me/SoerFamily" target="_blank" rel="noopener noreferrer">
+    💗 Перейти в Telegram
+  </a>
 </section>
 
+<!-- Панель статуса дома и входа администратора -->
+  <section id="sf-panel">
+    <h2>> SOERFAMILY_STATUS.exe</h2>
+    <p>Статус дома: <strong id="sf-status">Загрузка...</strong></p>
+    <p>Набор: <strong id="sf-recruitment">Загрузка...</strong></p>
+    <p>Объявление: <span id="sf-announcement">Загрузка...</span></p>
+    <hr>
+<h3>// ADMIN LOGIN</h3>
+    <input id="sf-email" type="email" placeholder="Email администратора" autocomplete="username">
+    <input id="sf-password" type="password" placeholder="Пароль" autocomplete="current-password">
+    <button id="sf-login" type="button">Войти</button>
+    <button id="sf-logout" type="button">Выйти</button>
+    <p id="sf-admin-message" class="sf-muted">Ожидание входа...</p>
+<div id="sf-controls" hidden>
+      <h3>// CONTROL PANEL</h3>
+      <input id="sf-new-status" placeholder="Статус дома, например Активен">
+      <input id="sf-new-recruitment" placeholder="Набор: Открыт или Закрыт">
+      <textarea id="sf-new-announcement" placeholder="Новое объявление"></textarea>
+      <button id="sf-save" type="button">Сохранить изменения</button>
+    </div>
+  </section>
+</main>
+<footer>© 2026 𝑺𝒐𝒆𝒓𝑭𝒂𝒎𝒊𝒍𝒚</footer>
+<!-- SOERFAMILY SECRET EASTER EGG -->
+<div id="sf-secret" title="..." aria-label="Секрет" role="button" tabindex="0">✦</div>
+<div id="sf-easter-message">
+  <div id="sf-easter-card">
+    <div style="font-size:12px;letter-spacing:4px">SOERFAMILY // UNKNOWN</div>
+    <h2>Ты нашёл первый след.</h2>
+    <p>Не все секреты скрыты в темноте.</p>
+    <p>Иногда нужно внимательно посмотреть на то, что уже перед глазами.</p>
+    <button id="sf-easter-close" type="button">Продолжить поиск</button>
+  </div>
+</div>
+<script>
+(() => {
+  const star = document.getElementById("sf-secret");
+  const panel = document.getElementById("sf-easter-message");
+  const close = document.getElementById("sf-easter-close");
+  if (!star || !panel || !close) return;
+const openSecret = () => {
+    panel.style.display = "flex";
+  };
+const closeSecret = () => {
+    panel.style.display = "none";
+  };
+  star.addEventListener("click", openSecret);
+star.addEventListener("keydown", event => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openSecret();
+    }
+  });
+  close.addEventListener("click", closeSecret);
+panel.addEventListener("click", event => {
+    if (event.target === panel) closeSecret();
+  });
+})();
+</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
 (() => {
   const SUPABASE_URL = "https://lxdyomclanvyqsadpirl.supabase.co";
   const SUPABASE_KEY = "sb_publishable_VbT5fZOaz9mAJQ8-1J_6dg_MvB58iBu";
 
-  const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
   const $ = id => document.getElementById(id);
-  const message = text => $("sf-message").textContent = text;
-
-  async function loadStatus() {
+// Отдельное сообщение для админ-панели.
+  // Оно больше не конфликтует с секретной пасхалкой.
+  const message = text => {
+    $("sf-admin-message").textContent = text;
+  };
+async function loadStatus() {
     const { data, error } = await db
       .from("house_status")
       .select("status,recruitment,announcement")
       .eq("id", 1)
       .single();
-
-    if (error) {
+if (error) {
       $("sf-status").textContent = "Ошибка загрузки";
+      $("sf-recruitment").textContent = "—";
+      $("sf-announcement").textContent = "—";
       message("Не удалось загрузить статус. Проверь настройки Supabase.");
       return;
     }
-
-    $("sf-status").textContent = data.status;
-    $("sf-recruitment").textContent = data.recruitment;
-    $("sf-announcement").textContent = data.announcement;
-
-    $("sf-new-status").value = data.status;
-    $("sf-new-recruitment").value = data.recruitment;
-    $("sf-new-announcement").value = data.announcement;
+$("sf-status").textContent = data.status ?? "";
+    $("sf-recruitment").textContent = data.recruitment ?? "";
+    $("sf-announcement").textContent = data.announcement ?? "";
+$("sf-new-status").value = data.status ?? "";
+    $("sf-new-recruitment").value = data.recruitment ?? "";
+    $("sf-new-announcement").value = data.announcement ?? "";
   }
-
-  async function refreshLogin() {
-    const { data } = await db.auth.getSession();
-    const loggedIn = !!data.session;
+async function refreshLogin() {
+    const { data, error } = await db.auth.getSession();
+if (error) {
+      message("Не удалось проверить вход.");
+      return;
+    }
+const loggedIn = !!data.session;
     $("sf-controls").hidden = !loggedIn;
-    message(loggedIn ? "Вход выполнен." : "Войдите в аккаунт администратора.");
+    message(
+      loggedIn
+        ? "Вход выполнен."
+        : "Войдите в аккаунт администратора."
+    );
   }
-
-  $("sf-login").onclick = async () => {
+$("sf-login").onclick = async () => {
     const { error } = await db.auth.signInWithPassword({
       email: $("sf-email").value.trim(),
       password: $("sf-password").value
     });
-
-    if (error) {
+if (error) {
       message("Ошибка входа: " + error.message);
       return;
     }
-
-    $("sf-password").value = "";
+$("sf-password").value = "";
     await refreshLogin();
   };
-
-  $("sf-logout").onclick = async () => {
-    await db.auth.signOut();
-    await refreshLogin();
+$("sf-logout").onclick = async () => {
+    const { error } = await db.auth.signOut();
+if (error) {
+      message("Не удалось выйти из аккаунта.");
+      return;
+    }
+await refreshLogin();
   };
-
-  $("sf-save").onclick = async () => {
-    const { data: sessionData } = await db.auth.getSession();
-    if (!sessionData.session) {
+$("sf-save").onclick = async () => {
+    const { data: sessionData, error: sessionError } =
+      await db.auth.getSession();
+if (sessionError || !sessionData.session) {
       message("Сначала войди в аккаунт.");
       return;
     }
-
-    const { error } = await db
+const { error } = await db
       .from("house_status")
       .update({
         status: $("sf-new-status").value.trim(),
@@ -376,25 +420,20 @@ footer {
         updated_at: new Date().toISOString()
       })
       .eq("id", 1);
-
-    if (error) {
+if (error) {
       message("Не удалось сохранить: " + error.message);
       return;
     }
- 
-    message("Изменения сохранены!");
+message("Изменения сохранены!");
     await loadStatus();
   };
-
-  db.auth.onAuthStateChange(() => {
+db.auth.onAuthStateChange(() => {
     refreshLogin();
   });
-
-  loadStatus();
+loadStatus();
   refreshLogin();
 })();
 </script>
-```
-
-
+</body>
 </html>
+</CodeBlock>
