@@ -1,238 +1,49 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SoerFamily — Minecraft House</title>
-
 <style>
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-
-body {
-  margin: 0;
-  background: #09060b;
-  color: white;
-  font-family: Arial, sans-serif;
-}
-
-header {
-  padding: 22px;
-  text-align: center;
-  border-bottom: 1px solid #ff3ca6;
-  box-shadow: 0 0 18px #ff168455;
-}
-
-.logo {
-  color: #ff4eae;
-  font-size: 28px;
-  font-weight: bold;
-  text-shadow: 0 0 15px #ff1684;
-  cursor: pointer;
-  user-select: none;
-}
-
-nav { margin-top: 18px; }
-
-nav a {
-  display: inline-block;
-  color: white;
-  text-decoration: none;
-  margin: 7px 12px;
-}
-
-nav a:hover { color: #ff4eae; }
-
-main {
-  max-width: 900px;
-  margin: auto;
-  padding: 35px 18px;
-}
-
-.hero {
-  text-align: center;
-  padding: 65px 15px;
-  border: 1px solid #ff3ca6;
-  border-radius: 18px;
-  background: linear-gradient(135deg, #190817, #09060b);
-  box-shadow: 0 0 25px #ff168422;
-}
-
-h1 { font-size: 38px; color: #ff4eae; }
-h2 { color: #ff4eae; }
-h3 { color: #ff8bc9; }
-
-p, li {
-  line-height: 1.8;
-  color: #e8dce6;
-}
-
-section {
-  margin-top: 28px;
-  padding: 22px;
-  background: #120c15;
-  border: 1px solid #57203f;
-  border-radius: 14px;
-  scroll-margin-top: 15px;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 15px;
-}
-
-.card {
-  padding: 18px;
-  border: 1px solid #ff3ca6;
-  border-radius: 12px;
-  background: #1b0d1a;
-}
-
-.member-name {
-  color: #ff4eae;
-  font-size: 21px;
-  font-weight: bold;
-  text-shadow: 0 0 10px #ff168455;
-  overflow-wrap: anywhere;
-}
-
-.member-role {
-  color: #a99aa6;
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.button {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 12px 20px;
-  color: white;
-  background: #d91b80;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: 0.2s;
-  border: none;
-  cursor: pointer;
-}
-
-.button:hover {
-  background: #ff3ca6;
-  box-shadow: 0 0 15px #ff168466;
-}
-
-.rule {
-  margin: 12px 0;
-  padding: 15px;
-  border-left: 3px solid #ff3ca6;
-  border-radius: 5px;
-  background: #1b0d1a;
-  line-height: 1.8;
-  color: #e8dce6;
-}
-
-.rule strong { color: #ff8bc9; }
-
-#sf-rule-exception {
-  color: #ff8bc9;
-  cursor: pointer;
-  text-decoration: underline dotted;
-}
-
-footer {
-  padding: 25px;
-  text-align: center;
-  color: #a99aa6;
-  border-top: 1px solid #57203f;
-}
-
-#sf-footer-star {
-  display: inline-block;
-  margin-left: 7px;
-  color: #ff4eae;
-  cursor: pointer;
-  user-select: none;
-}
-
-.sf-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 10000;
-  background: #050008ee;
-  color: #ff75bd;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px;
-  font-family: monospace;
-  overflow-y: auto;
-}
-
-.sf-box {
-  width: 100%;
-  max-width: 460px;
-  border: 1px solid #ff4fa3;
-  padding: 26px;
-  background: #100812;
-  box-shadow: 0 0 25px #ff168855;
-  border-radius: 10px;
-}
-
-.sf-code {
-  font-size: 12px;
-  letter-spacing: 3px;
-  overflow-wrap: anywhere;
-}
-
-.sf-overlay h2 { color: #ff75bd; }
-
-.sf-overlay p {
-  color: #f4dce9;
-  line-height: 1.7;
-}
-
-.sf-overlay input {
-  width: 100%;
-  padding: 12px;
-  margin: 12px 0;
-  background: #09060b;
-  color: white;
-  border: 1px solid #ff4fa3;
-  border-radius: 6px;
-  outline: none;
-}
-
-.sf-overlay button {
-  background: #ff4fa3;
-  color: #10000b;
-  border: 0;
-  border-radius: 6px;
-  padding: 11px 17px;
-  margin: 5px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.sf-overlay button:hover { background: #ff8bc9; }
-
-.sf-error {
-  min-height: 22px;
-  color: #ff8bc9 !important;
-}
-
-@media (max-width: 600px) {
-  h1 { font-size: 29px; }
-  header { padding: 18px 10px; }
-  nav a { margin: 7px; }
-  section { padding: 17px; }
-  .sf-box { padding: 19px; }
-}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#09060b;color:#fff;font-family:Arial,sans-serif}
+header{padding:22px;text-align:center;border-bottom:1px solid #ff3ca6;box-shadow:0 0 18px #ff168455}
+.logo{color:#ff4eae;font-size:28px;font-weight:bold;text-shadow:0 0 15px #ff1684;cursor:pointer;user-select:none}
+nav{margin-top:18px}
+nav a{display:inline-block;color:#fff;text-decoration:none;margin:7px 12px}
+nav a:hover{color:#ff4eae}
+main{max-width:900px;margin:auto;padding:35px 18px}
+.hero{text-align:center;padding:65px 15px;border:1px solid #ff3ca6;border-radius:18px;background:linear-gradient(135deg,#190817,#09060b);box-shadow:0 0 25px #ff168422}
+h1{font-size:38px;color:#ff4eae}
+h2{color:#ff4eae}
+h3{color:#ff8bc9}
+p,li{line-height:1.8;color:#e8dce6}
+section{margin-top:28px;padding:22px;background:#120c15;border:1px solid #57203f;border-radius:14px;scroll-margin-top:15px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.card{padding:18px;border:1px solid #ff3ca6;border-radius:12px;background:#1b0d1a}
+.member-name{color:#ff4eae;font-size:21px;font-weight:bold;text-shadow:0 0 10px #ff168455;overflow-wrap:anywhere}
+.member-role{color:#a99aa6;font-size:13px;text-transform:uppercase;letter-spacing:2px}
+.button{display:inline-block;margin-top:12px;padding:12px 20px;color:white;background:#d91b80;border-radius:8px;text-decoration:none;transition:.2s;border:0;cursor:pointer}
+.button:hover{background:#ff3ca6;box-shadow:0 0 15px #ff168466}
+.rule{margin:12px 0;padding:15px;border-left:3px solid #ff3ca6;border-radius:5px;background:#1b0d1a;line-height:1.8;color:#e8dce6}
+.rule strong{color:#ff8bc9}
+#sf-rule-exception{color:#ff8bc9;cursor:pointer;text-decoration:underline dotted}
+footer{padding:25px;text-align:center;color:#a99aa6;border-top:1px solid #57203f}
+#sf-footer-star{display:inline-block;margin-left:7px;color:#ff4eae;cursor:pointer;user-select:none}
+.sf-overlay{display:none;position:fixed;inset:0;z-index:10000;background:#050008ee;color:#ff75bd;align-items:center;justify-content:center;text-align:center;padding:20px;font-family:monospace;overflow-y:auto}
+.sf-box{width:100%;max-width:460px;border:1px solid #ff4fa3;padding:26px;background:#100812;box-shadow:0 0 25px #ff168855;border-radius:10px}
+.sf-code{font-size:12px;letter-spacing:3px;overflow-wrap:anywhere;color:#ff75bd}
+.sf-overlay h2{color:#ff75bd}
+.sf-overlay p{color:#f4dce9;line-height:1.7}
+.sf-overlay input{width:100%;padding:12px;margin:12px 0;background:#09060b;color:white;border:1px solid #ff4fa3;border-radius:6px;outline:none}
+.sf-overlay button{background:#ff4fa3;color:#10000b;border:0;border-radius:6px;padding:11px 17px;margin:5px;cursor:pointer;font-weight:bold}
+.sf-overlay button:hover{background:#ff8bc9}
+.sf-error{min-height:22px;color:#ff8bc9!important}
+.sf-overlay strong{color:#ff8bc9}
+@media(max-width:600px){h1{font-size:29px}header{padding:18px 10px}nav a{margin:7px}section{padding:17px}.sf-box{padding:19px}}
 </style>
 </head>
-
 <body>
 
 <header>
@@ -266,7 +77,6 @@ footer {
         <p class="member-name">Saffiik0</p>
         <p class="member-role">Owner · SoerFamily</p>
       </div>
-
       <div class="card">
         <h3>🛡️ Администрация</h3>
         <p class="member-name">emcwet</p>
@@ -310,7 +120,6 @@ footer {
     <div class="rule"><strong>3.8.</strong> Заделывайте ямы, оставленные криперами, и срубайте деревья до конца, не оставляя парящие части ствола.</div>
     <div class="rule"><strong>3.9.</strong> Обязательно обозначайте свою территорию тропинкой, созданной с помощью лопаты, и устанавливайте табличку со своим ником.</div>
     <div class="rule"><strong>3.10.</strong> Использование багов, дюпов и других игровых уязвимостей для получения преимуществ строго запрещено.</div>
-
     <p><strong>🩷 Соблюдайте правила и уважайте других игроков!</strong></p>
     <p>Администрация оставляет за собой право принимать меры при нарушении правил.</p>
   </section>
@@ -318,9 +127,7 @@ footer {
   <section id="contacts">
     <h2>💌 Наш Telegram</h2>
     <p>Присоединяйся к сообществу 𝑺𝒐𝒆𝒓𝑭𝒂𝒎𝒊𝒍𝒚!</p>
-    <a class="button" href="https://t.me/SoerFamily" target="_blank" rel="noopener noreferrer">
-      💗 Перейти в Telegram
-    </a>
+    <a class="button" href="https://t.me/SoerFamily" target="_blank" rel="noopener noreferrer">💗 Перейти в Telegram</a>
   </section>
 </main>
 
@@ -329,74 +136,142 @@ footer {
   <span id="sf-footer-star" title="...">✦</span>
 </footer>
 
-<!-- Первый след -->
+<!-- 01 -->
 <div id="sf-trace-1" class="sf-overlay">
   <div class="sf-box">
-    <div class="sf-code">SOERFAMILY // UNKNOWN</div>
-    <h2>Ты нашёл первый след.</h2>
+    <div class="sf-code">SOERFAMILY // TRACE_001</div>
+    <h2>Первый след</h2>
     <p>Не все секреты скрыты в темноте.</p>
     <p>Иногда нужно внимательно посмотреть на то, что уже перед глазами.</p>
     <button data-close="sf-trace-1">Продолжить поиск</button>
   </div>
 </div>
 
-<!-- Второй след -->
+<!-- 02 -->
 <div id="sf-trace-2" class="sf-overlay">
   <div class="sf-box">
     <div class="sf-code">SOERFAMILY // TRACE_002</div>
-    <h2>Ты ищешь не там.</h2>
-    <p>Трижды посмотри туда, где начинается история.</p>
-    <p>Ответ спрятан не в словах, а между ними.</p>
+    <h2>Три касания</h2>
+    <p>Ты нашёл начало, но не ответ.</p>
+    <p>Иногда логотип знает больше, чем кажется.</p>
     <button data-close="sf-trace-2">Продолжить поиск</button>
   </div>
 </div>
 
-<!-- Третий след -->
+<!-- 03 -->
 <div id="sf-trace-3" class="sf-overlay">
   <div class="sf-box">
     <div class="sf-code">SOERFAMILY // TRACE_003</div>
-    <h2>Ты заметил исключение.</h2>
+    <h2>Мелкое исключение</h2>
     <p>Не каждое правило рассказывает всю историю.</p>
     <p>Иногда самое важное скрывается в одной детали.</p>
     <button data-close="sf-trace-3">Продолжить поиск</button>
   </div>
 </div>
 
-<!-- Четвёртый след -->
+<!-- 04 -->
 <div id="sf-trace-4" class="sf-overlay">
   <div class="sf-box">
     <div class="sf-code">SOERFAMILY // TRACE_004</div>
-    <h2>Ты почти у цели.</h2>
-    <p>Название состоит из двух частей.</p>
-    <p>Убери первую — получишь ключ к последней двери.</p>
-    <button data-close="sf-trace-4">Последняя дверь</button>
+    <h2>Раздели название</h2>
+    <p>SOER + FAMILY.</p>
+    <p>Убери первую часть названия. Оставшееся слово — твой ключ.</p>
+    <button data-close="sf-trace-4">Ввести ключ</button>
   </div>
 </div>
 
-<!-- Последняя дверь -->
-<div id="sf-final" class="sf-overlay">
-  <div class="sf-box">
-    <div class="sf-code">SOERFAMILY // FINAL GATE</div>
-    <h2>Последняя дверь</h2>
-    <p>Введи ключ, который ты нашёл в предыдущей загадке.</p>
-    <form id="sf-final-form">
-      <input id="sf-final-key" type="text" placeholder="Ключ..." autocomplete="off">
-      <button type="submit">Открыть</button>
-    </form>
-    <p id="sf-final-error" class="sf-error"></p>
-    <button data-close="sf-final">Назад</button>
-  </div>
-</div>
-
-<!-- Финал -->
+<!-- 05 -->
 <div id="sf-trace-5" class="sf-overlay">
   <div class="sf-box">
-    <div class="sf-code">SOERFAMILY // CONNECTION ESTABLISHED</div>
-    <h2>ТЫ НАШЁЛ НАС.</h2>
-    <p>Ты прошёл все следы и дошёл до конца.</p>
-    <p>Но теперь ты знаешь: у SoerFamily есть история, которую видят не все.</p>
+    <div class="sf-code">SOERFAMILY // TRACE_005</div>
+    <h2>Первая проверка</h2>
+    <p>Введи слово, которое осталось после того, как ты убрал SOER из названия.</p>
+    <form data-answer="family" data-next="sf-trace-6">
+      <input type="text" placeholder="Твой ответ..." autocomplete="off" maxlength="40" required>
+      <button type="submit">Проверить</button>
+    </form>
+    <p class="sf-error" aria-live="polite"></p>
+    <button data-close="sf-trace-5">Закрыть</button>
+  </div>
+</div>
+
+<!-- 06 -->
+<div id="sf-trace-6" class="sf-overlay">
+  <div class="sf-box">
+    <div class="sf-code">SOERFAMILY // TRACE_006</div>
+    <h2>Цифры помнят</h2>
+    <p><strong>19 — 15 — 5 — 18</strong></p>
+    <p>A = 1, B = 2, C = 3…</p>
+    <p>Замени каждое число соответствующей буквой и собери слово.</p>
+    <form data-answer="soer" data-next="sf-trace-7">
+      <input type="text" placeholder="Расшифрованное слово..." autocomplete="off" maxlength="40" required>
+      <button type="submit">Проверить</button>
+    </form>
+    <p class="sf-error" aria-live="polite"></p>
+    <button data-close="sf-trace-6">Закрыть</button>
+  </div>
+</div>
+
+<!-- 07 -->
+<div id="sf-trace-7" class="sf-overlay">
+  <div class="sf-box">
+    <div class="sf-code">SOERFAMILY // TRACE_007</div>
+    <h2>Без имени</h2>
+    <p>Я есть, но ты не знаешь, кто я.</p>
+    <p>Меня ещё не удалось определить.</p>
+    <p>Какое английское слово подходит под это описание?</p>
+    <form data-answer="unknown" data-next="sf-trace-8">
+      <input type="text" placeholder="Ответ на английском..." autocomplete="off" maxlength="40" required>
+      <button type="submit">Проверить</button>
+    </form>
+    <p class="sf-error" aria-live="polite"></p>
+    <button data-close="sf-trace-7">Закрыть</button>
+  </div>
+</div>
+
+<!-- 08 -->
+<div id="sf-trace-8" class="sf-overlay">
+  <div class="sf-box">
+    <div class="sf-code">SOERFAMILY // TRACE_008</div>
+    <h2>Второе слово</h2>
+    <p>В надписи <strong>UNKNOWN ENTITY</strong> первое слово ты уже разгадал.</p>
+    <p>Введи второе слово из этой надписи.</p>
+    <form data-answer="entity" data-next="sf-trace-9">
+      <input type="text" placeholder="Второе слово..." autocomplete="off" maxlength="40" required>
+      <button type="submit">Проверить</button>
+    </form>
+    <p class="sf-error" aria-live="polite"></p>
+    <button data-close="sf-trace-8">Закрыть</button>
+  </div>
+</div>
+
+<!-- 09 -->
+<div id="sf-trace-9" class="sf-overlay">
+  <div class="sf-box">
+    <div class="sf-code">SOERFAMILY // TRACE_009</div>
+    <h2>Последний ключ</h2>
+    <p>У меня есть зубцы, но я не кусаюсь.</p>
+    <p>Я могу открыть дверь, хотя у меня нет рук.</p>
+    <p>Что я такое? Ответь одним словом на английском.</p>
+    <form data-answer="key" data-next="sf-trace-10">
+      <input type="text" placeholder="Последний ключ..." autocomplete="off" maxlength="40" required>
+      <button type="submit">Проверить</button>
+    </form>
+    <p class="sf-error" aria-live="polite"></p>
+    <button data-close="sf-trace-9">Закрыть</button>
+  </div>
+</div>
+
+<!-- 10 -->
+<div id="sf-trace-10" class="sf-overlay">
+  <div class="sf-box">
+    <div class="sf-code">SOERFAMILY // UNKNOWN ENTITY</div>
+    <h2>Ты нашёл дверь.</h2>
+    <p>Ты собрал следы и добрался до места, которое не предназначалось для случайных посетителей.</p>
+    <p>Но кто оставил дверь открытой?</p>
+    <p><strong>CONNECTION ESTABLISHED</strong></p>
     <p>Это не конец. Это только начало.</p>
-    <button data-close="sf-trace-5">Завершить</button>
+    <button data-close="sf-trace-10">Завершить</button>
   </div>
 </div>
 
@@ -404,112 +279,127 @@ footer {
 (() => {
   const $ = id => document.getElementById(id);
 
-  function openTrace(id) {
+  function show(id) {
     const element = $(id);
     if (element) element.style.display = "flex";
   }
 
-  function closeTrace(id) {
+  function hide(id) {
     const element = $(id);
     if (element) element.style.display = "none";
   }
 
-  // Этап 1: секретная звезда в правом нижнем углу.
+  // Все окна закрываются своими кнопками.
+  document.querySelectorAll("[data-close]").forEach(button => {
+    button.addEventListener("click", () => {
+      const id = button.dataset.close;
+      hide(id);
+
+      // Четвёртый след ведёт к пятому этапу.
+      if (id === "sf-trace-4") show("sf-trace-5");
+    });
+  });
+
+  // Клик по затемнённому фону закрывает окно.
+  document.querySelectorAll(".sf-overlay").forEach(overlay => {
+    overlay.addEventListener("click", event => {
+      if (event.target === overlay) hide(overlay.id);
+    });
+  });
+
+  // Escape закрывает все открытые загадки.
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+      document.querySelectorAll(".sf-overlay").forEach(overlay => {
+        hide(overlay.id);
+      });
+    }
+  });
+
+  // Загадка 1: секретная звезда в углу.
   const secretStar = document.createElement("span");
   secretStar.textContent = "✦";
-  secretStar.title = "...";
+  secretStar.title = "Интересно...";
+  secretStar.setAttribute("role", "button");
+  secretStar.tabIndex = 0;
   secretStar.style.cssText =
-    "position:fixed;bottom:8px;right:8px;z-index:9999;color:#ff4fa3;cursor:pointer;font-size:18px;user-select:none";
+    "position:fixed;right:8px;bottom:8px;z-index:9999;color:#ff4fa3;cursor:pointer;font-size:18px;user-select:none";
   document.body.appendChild(secretStar);
-  secretStar.addEventListener("click", () => openTrace("sf-trace-1"));
 
-  // Этап 2: три нажатия на логотип.
+  const openFirst = () => show("sf-trace-1");
+  secretStar.addEventListener("click", openFirst);
+  secretStar.addEventListener("keydown", event => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openFirst();
+    }
+  });
+
+  // Загадка 2: три нажатия на логотип.
   let logoClicks = 0;
   let logoTimer;
+
   $("sf-logo").addEventListener("click", () => {
     logoClicks++;
     clearTimeout(logoTimer);
 
     if (logoClicks >= 3) {
       logoClicks = 0;
-      openTrace("sf-trace-2");
+      show("sf-trace-2");
       return;
     }
 
     logoTimer = setTimeout(() => {
       logoClicks = 0;
-    }, 900);
+    }, 1200);
   });
 
-  // Этап 3: нажатие на слово «Исключение».
+  // Загадка 3: секрет в слове «Исключение».
   $("sf-rule-exception").addEventListener("click", () => {
-    openTrace("sf-trace-3");
+    show("sf-trace-3");
   });
 
-  // Этап 4: три нажатия на звезду в подвале.
+  // Загадка 4: три нажатия на звёздочку внизу сайта.
   let footerClicks = 0;
   let footerTimer;
+
   $("sf-footer-star").addEventListener("click", () => {
     footerClicks++;
     clearTimeout(footerTimer);
 
     if (footerClicks >= 3) {
       footerClicks = 0;
-      openTrace("sf-trace-4");
+      show("sf-trace-4");
       return;
     }
 
     footerTimer = setTimeout(() => {
       footerClicks = 0;
-    }, 900);
+    }, 1200);
   });
 
-  // Переход к последней двери.
-  document.querySelector('[data-close="sf-trace-4"]')
-    .addEventListener("click", () => {
-      closeTrace("sf-trace-4");
-      openTrace("sf-final");
-    });
+  // Загадки 5–9: проверяем ответ и открываем следующий этап.
+  document.querySelectorAll("form[data-answer]").forEach(form => {
+    form.addEventListener("submit", event => {
+      event.preventDefault();
 
-  // Этап 5: проверка ключа.
-  $("sf-final-form").addEventListener("submit", event => {
-    event.preventDefault();
+      const input = form.querySelector("input");
+      const error = form.parentElement.querySelector(".sf-error");
+      const answer = input.value.trim().toLowerCase();
+      const correctAnswer = form.dataset.answer.toLowerCase();
 
-    const key = $("sf-final-key").value.trim().toUpperCase();
+      if (answer === correctAnswer) {
+        const next = form.dataset.next;
+        const currentOverlay = form.closest(".sf-overlay");
 
-    if (key === "FAMILY") {
-      closeTrace("sf-final");
-      $("sf-final-error").textContent = "";
-      $("sf-final-key").value = "";
-      openTrace("sf-trace-5");
-    } else {
-      $("sf-final-error").textContent = "Ключ не подходит. Подумай ещё.";
-    }
-  });
-
-  // Закрытие окон кнопками.
-  document.querySelectorAll("[data-close]").forEach(button => {
-    button.addEventListener("click", () => {
-      closeTrace(button.dataset.close);
-    });
-  });
-
-  // Закрытие при нажатии на затемнённый фон.
-  document.querySelectorAll(".sf-overlay").forEach(overlay => {
-    overlay.addEventListener("click", event => {
-      if (event.target === overlay) {
-        closeTrace(overlay.id);
+        error.textContent = "";
+        input.value = "";
+        hide(currentOverlay.id);
+        show(next);
+      } else {
+        error.textContent = "Не подходит. Перечитай подсказку и попробуй ещё.";
       }
     });
-  });
-
-  // Закрытие клавишей Escape.
-  document.addEventListener("keydown", event => {
-    if (event.key === "Escape") {
-      document.querySelectorAll(".sf-overlay").forEach(overlay => {
-        closeTrace(overlay.id);
-      });
-    }
   });
 })();
 </script>
